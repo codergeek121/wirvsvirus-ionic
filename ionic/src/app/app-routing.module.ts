@@ -8,6 +8,10 @@ const routes: Routes = [
     path: 'select-market',
     loadChildren: () => import('./select-market/select-market.module').then( m => m.SelectMarketPageModule)
   },
+  {
+    path: 'market/:id',
+    loadChildren: () => import('./market-detail/market-detail.module').then( m => m.MarketDetailPageModule)
+  },
 ];
 
 @NgModule({
