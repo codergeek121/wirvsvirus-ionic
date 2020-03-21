@@ -11,20 +11,13 @@
         <ion-icon slot="icon-only" name="funnel-outline"></ion-icon>
       </ion-button>
     </ion-buttons>
-    <ion-searchbar [(ngModel)]="plz" inputmode="numeric" placeholder="PLZ" maxLength="5"></ion-searchbar>
+    <ion-searchbar [(ngModel)]="plz" inputmode="numeric" placeholder="PLZ"></ion-searchbar>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="false">
 
-  <ion-list>
-    <ion-item *ngFor="let market of markets" [routerLink]="['/market',market.id]">
-      <ion-label>
-        <h2>{{ market.name }}</h2>
-        <h3>{{ market.address }}</h3>
-      </ion-label>
-    </ion-item>
-  </ion-list>
-
   <ion-button expand="block" (click)="startSearch()">Suche starten</ion-button>
+
+  <ion-button [routerLink]="['/scanner']">Link zu Scanner (für Security)</ion-button>
 </ion-content>
