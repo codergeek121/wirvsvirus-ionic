@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { BackendService } from "../services/backend.service"
+import { Observable } from 'rxjs';
 
 interface Store {
 	id: number;
@@ -24,10 +24,13 @@ interface StoreCapacity {
   providedIn: 'root'
 })
 export class StoreService {
+	public $stores: Observable<Store[]>;
 
-	constructor(private http: HttpClient, private backendService: BackendService) {}
+	constructor(
+		private backendService: BackendService
+	) {}
 
 	refresh(){
-			return this.backendService.getStores();
+			this.$stores = this.backendService.getStores();
 	}
 }
