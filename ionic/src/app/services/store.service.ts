@@ -6,8 +6,17 @@ interface Store {
 	id: number;
 	name: string,
 	description: string;
+	//address: Address[];
 	lat: string;
 	long: string;
+}
+
+interface Address {
+	id: number;
+	street: number;
+	housenumber: number;
+	zip_code: number;
+	city: number;
 }
 
 interface StoreCapacity {
@@ -35,5 +44,9 @@ export class StoreService {
 	refresh(){
 			this.$stores = this.backendService.getStores();
 			return this.$stores;
+	}
+
+	filterStores(plz: number, type: String){
+		//this.$stores.filter(store => store.id > 1)
 	}
 }
