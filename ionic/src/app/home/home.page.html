@@ -17,14 +17,19 @@
 
 <ion-content [fullscreen]="false">
 
-  <ion-list>
-    <ion-item *ngFor="let market of markets" [routerLink]="['/market',market.id]">
-      <ion-label>
-        <h2>{{ market.name }}</h2>
-        <h3>{{ market.address }}</h3>
-      </ion-label>
-    </ion-item>
-  </ion-list>
+  <ion-card *ngFor="let market of markets">
+    <ion-card-header>
+      <ion-card-title>{{ market.name }}</ion-card-title>
+    </ion-card-header>
 
-  <ion-button expand="block" (click)="startSearch()">Suche starten</ion-button>
+    <ion-card-content>
+      <p>Eschersheimer Landstraße 223, 60320 Frankfurt, Germany</p>
+    </ion-card-content>
+
+    <ion-button expand="block" size="small" [routerLink]="['/market', market.id]">
+      <ion-icon name="calendar-outline" slot="start"></ion-icon>Zeit buchen
+    </ion-button>
+
+  </ion-card>
+
 </ion-content>
