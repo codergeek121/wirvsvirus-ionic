@@ -1,7 +1,15 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { HttpHeaders } from '@angular/common/http';
-import { HomePage } from './home/home.page';
+import { HomePage } from '../home/home.page';
+
+interface Store {
+	id: number;
+	name: string,
+	description: string;
+	lat: string;
+	long: string;
+}
 
 @Injectable({
   providedIn: 'root'
@@ -16,6 +24,13 @@ export class BackendService {
 	marketUrl = this.hostUrl +'stores/'
 	
 	constructor(private http: HttpClient) {}
+
+	/**
+	 * So mit dem Interface in <+> auch für die Anderen
+	 */
+	public getStores() {
+		return this.http.get<Store[]>(this.hostUrl + "/stores")
+	}
 	
   public searchMarkets(postalCode : String, typeOfMarket : String) {
 
