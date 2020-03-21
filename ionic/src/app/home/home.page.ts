@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { BackendService } from '../backend.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -18,7 +19,10 @@ export class HomePage {
 
   plz = "";
 
-  constructor(private backend: BackendService) {}
+  constructor(
+    private backend: BackendService,
+    private router: Router
+    ) {}
 
   public startSearch() {
     console.log(this.supermarketTypes)
@@ -26,5 +30,7 @@ export class HomePage {
     this.backend.searchMarkets(this.plz, "Lebensmittel").subscribe(result => {
       console.log(result)
     })
+
+    this.router.navigate(["select-market"])
   }
 }
