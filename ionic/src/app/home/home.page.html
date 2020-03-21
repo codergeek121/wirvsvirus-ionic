@@ -17,6 +17,10 @@
 
 <ion-content [fullscreen]="false">
 
+  <ion-refresher slot="fixed" (ionRefresh)="refreshStores($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
   <ion-card *ngFor="let market of storeService.$stores | async ">
     <ion-card-header>
       <ion-card-title>{{ market.name }}</ion-card-title>

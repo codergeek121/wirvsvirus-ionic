@@ -4,6 +4,8 @@ import { Router } from '@angular/router';
 import { PopoverController } from '@ionic/angular';
 import { FilterPopoverComponent } from '../filter-popover/filter-popover.component';
 import { StoreService } from '../services/store.service';
+import { Observable, of } from 'rxjs';
+import { delay } from "rxjs/operators";
 
 @Component({
   selector: 'app-home',
@@ -33,6 +35,14 @@ export class HomePage {
     })
 
     this.router.navigate(["select-market"])
+  }
+
+  public refreshStores(event: any) {
+    this.storeService.refresh();
+
+    of(null).pipe(delay(2000)).subscribe(x => {
+      event.target.complete();
+    })
   }
 
   async showFilterPopover(ev: any) {

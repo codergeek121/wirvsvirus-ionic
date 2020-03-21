@@ -34,5 +34,6 @@ export class StoreService {
 
 	refresh(){
 			this.$stores = this.backendService.getStores();
+			return this.$stores;
 	}
 }
