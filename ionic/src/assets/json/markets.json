@@ -1,7 +1,22 @@
 {
-  "markets": [
-    {"id": "1", "name": "testname", "adress": "Musterweg 1 Berlin"},
-    {"id": "2", "name": "testname2", "adress": "Musterweg 2 Berlin"}
-  ]
-}
-
+"count": 2,
+"next": null,
+"previous": null,
+"results": [
+		{
+			  "id":"1",
+				"name": "Rewe",
+				"description": "Eschersheimer Landstraße 223, 60320 Frankfurt, Germany",
+				"zip_code": "60320",
+				"lat": "50.133809",
+				"long": "8.671110"
+		},
+		{
+			  "id": "2",
+				"name": "Rewe City",
+				"description": "Rewe City, Hansaallee, 60323 Frankfurt, Germany",
+				"zip_code": "60323",
+				"lat": "50.127724",
+				"long": "8.671518"
+		}
+]}
