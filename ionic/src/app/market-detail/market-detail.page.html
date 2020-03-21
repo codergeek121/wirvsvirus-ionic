@@ -13,21 +13,16 @@
   <p>{{ market.plz }}</p>
   <p>{{ market.city }}</p>
 
-
-  <h2>Ihr gewähltes Zeitfenster:</h2>
-  <ul>
-    <li>{{ this.selectedTimeslot.desc }}</li>
-  </ul>
-
   <ion-list>
-    <ion-radio-group value="biff">
+    <ion-radio-group value="biff" [(ngModel)]="capacityId">
       <ion-list-header>
         <ion-label>Einkaufszeiträume</ion-label>
       </ion-list-header>
   
       <ion-item *ngFor="let capacity of $capacities | async">
         <ion-label>{{ capacity.start | date: 'hh:mm' }} - {{ capacity.end | date: 'hh:mm' }}</ion-label>
-        <ion-radio slot="start" [value]="capacity.id"></ion-radio>
+        <ion-radio slot="start" [value]="capacity.id" [disabled]="capacity.available_capacity == 0"></ion-radio>
+        <ion-text slot="end">{{ capacity.reserved_capacity }}/{{ capacity.total_capacity }}</ion-text>
       </ion-item>
   
     </ion-radio-group>
