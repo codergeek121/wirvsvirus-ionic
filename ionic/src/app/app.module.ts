@@ -9,10 +9,11 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
+import { FilterPopoverComponent } from './filter-popover/filter-popover.component';
 
 @NgModule({
-  declarations: [AppComponent],
-  entryComponents: [],
+  declarations: [AppComponent, FilterPopoverComponent],
+  entryComponents: [FilterPopoverComponent],
   imports: [BrowserModule, IonicModule.forRoot({mode: 'ios'}), AppRoutingModule, HttpClientModule],
   providers: [
     StatusBar,

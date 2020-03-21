@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { BackendService } from '../services/backend.service';
 import { Router } from '@angular/router';
+import { PopoverController } from '@ionic/angular';
+import { FilterPopoverComponent } from '../filter-popover/filter-popover.component';
 
 @Component({
   selector: 'app-home',
@@ -21,7 +23,8 @@ export class HomePage {
 
   constructor(
     private backend: BackendService,
-    private router: Router
+    private router: Router,
+    private popoverController: PopoverController
     ) {}
 
   public startSearch() {
@@ -32,5 +35,16 @@ export class HomePage {
     })
 
     this.router.navigate(["select-market"])
+  }
+
+  async showFilterPopover(ev: any) {
+    const filterPopover = await this.popoverController.create({
+      component: FilterPopoverComponent,
+      event: ev,
+      animated: true,
+      showBackdrop: true
+    })
+
+    return await filterPopover.present();
   }
 }
