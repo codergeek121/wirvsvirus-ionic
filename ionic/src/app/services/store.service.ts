@@ -1,9 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BackendService } from "../services/backend.service"
 import { Observable } from 'rxjs';
-import { filter } from 'rxjs/operators';
-import {Store} from '../services/backend.service';
-import {Address} from '../services/backend.service';
+import { filter, map, flatMap } from 'rxjs/operators';
 
 
 @Injectable({
@@ -24,6 +22,10 @@ export class StoreService {
 	}
 
 	filterStores(plz: number, type: string){
-		
+		return this.$stores.pipe(
+			flatMap(stores => stores),
+			filter(store => { })
+			})
+		)
 	}
 }
