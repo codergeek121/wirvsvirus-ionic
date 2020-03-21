@@ -1,0 +1,16 @@
+ion-content {
+  --padding-top: 20px;
+  --padding-start: 20px;
+  --padding-end: 20px;
+}
+
+.code-input {
+  text-align: center;
+  background-color: #f4f5f8;
+  appearance: none;
+  border: none;
+  border-radius: 4px;
+  line-height: 2.5;
+  font-weight: 700;
+  width: 100%;
+}
