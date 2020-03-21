@@ -27,7 +27,7 @@ export class ErrorInterceptor implements HttpInterceptor {
 
   async showToast() {
     const toast = await this.toastCtrl.create({
-      message: "There has been an error",
+      message: "Ups, ein Fehler. Wir arbeiten daran!",
       color: "danger",
       duration: 1000
     })
