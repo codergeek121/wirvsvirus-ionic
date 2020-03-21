@@ -4,11 +4,19 @@
       Geschäft suchen
     </ion-title>
   </ion-toolbar>
+
+  <ion-toolbar>
+    <ion-buttons slot="primary">
+      <ion-button>
+        <ion-icon slot="icon-only" name="funnel-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-searchbar [(ngModel)]="plz" inputmode="numeric" placeholder="PLZ"></ion-searchbar>
+  </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="false">
 
-  <ion-searchbar [(ngModel)]="plz" inputmode="numeric" placeholder="PLZ"></ion-searchbar>
  
   <ion-list>
     <ion-item *ngFor="let entry of supermarketTypes">
