@@ -4,7 +4,7 @@
 
 
 ## Search
-```
+```json
 Request:
 {
   search: {
@@ -23,7 +23,7 @@ Response:
 ```
 
 ## freeSlots
-```
+```json
 Request: 
 {
  id: 1,
@@ -33,8 +33,31 @@ Request:
 Response:
 {
   slots: [
-    { "id": 1, start_time: "datestring", end_time: "datestring", number_of_free_slots: 2, max_slots: 10 },
-    { "id": 2, start_time: "datestring", end_time: "datestring", number_of_free_slots: 2, max_slots: 10 }
+    { "id": 1, start_time: "datestring", end_time: "datestring", free_slots: 2, max_slots: 10 },
+    { "id": 2, start_time: "datestring", end_time: "datestring", free_slots: 2, max_slots: 10 }
   ]
 }
 ```
+
+## bookSlot
+
+```json
+Request:
+{ slot_id: 1 }
+
+Reponse:
+{ booking_code: "ax4s39" }
+```
+
+## Validate Booking Code
+
+```json
+Request:
+{ booking_code: "ax4s39", market_id: 1 }
+
+Reponse:
+{ details: {
+ ...
+} }
+```
+
