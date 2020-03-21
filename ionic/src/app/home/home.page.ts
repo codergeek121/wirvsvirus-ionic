@@ -10,13 +10,10 @@ import { FilterPopoverComponent } from '../filter-popover/filter-popover.compone
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
-  supermarketTypes = [
-    {val: "Lebensmittel", isChecked: true },
-    {val: "Drogerie", isChecked: false },
-    {val: "Apotheke", isChecked: false },
-    {val: "Garten", isChecked: false },
-    {val: "Baumarkt", isChecked: false },
-    {val: "Tierbedarf", isChecked: false },
+
+  public markets = [
+    { id: 1, name: "Laden 1", address: "Musterweg 1" },
+    { id: 2, name: "Laden 2", address: "Musterweg 2" },
   ];
 
   plz = "";
@@ -28,7 +25,6 @@ export class HomePage {
     ) {}
 
   public startSearch() {
-    console.log(this.supermarketTypes)
     console.log(this.plz)
     this.backend.getStores().subscribe(result => {
 			console.log(result)
