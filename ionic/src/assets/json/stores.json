@@ -1,7 +1,7 @@
 [
   {
       "id": 1,
-      "name": "Rewe",
+      "name": "Kleiner Laden mit langem Title",
       "description": "Eschersheimer Landstraße 223, 60320 Frankfurt, Germany",
       "address": {
           "id": 2,
@@ -19,8 +19,8 @@
   },
   {
       "id": 2,
-      "name": "Rewe City",
-      "description": "",
+      "name": "Testladen 1",
+      "description": "Neue Beschreibung",
       "address": {
           "id": 1,
           "street": "Hansaallee",
