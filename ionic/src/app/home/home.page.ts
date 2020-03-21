@@ -3,6 +3,7 @@ import { BackendService } from '../services/backend.service';
 import { Router } from '@angular/router';
 import { PopoverController } from '@ionic/angular';
 import { FilterPopoverComponent } from '../filter-popover/filter-popover.component';
+import { StoreService } from '../services/store.service';
 
 @Component({
   selector: 'app-home',
@@ -21,7 +22,8 @@ export class HomePage {
   constructor(
     private backend: BackendService,
     private router: Router,
-    private popoverController: PopoverController
+    private popoverController: PopoverController,
+    public storeService: StoreService
     ) {}
 
   public startSearch() {

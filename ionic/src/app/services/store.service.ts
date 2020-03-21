@@ -28,7 +28,9 @@ export class StoreService {
 
 	constructor(
 		private backendService: BackendService
-	) {}
+	) {
+		this.refresh();
+	}
 
 	refresh(){
 			this.$stores = this.backendService.getStores();

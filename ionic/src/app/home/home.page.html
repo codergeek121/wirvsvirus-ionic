@@ -17,13 +17,13 @@
 
 <ion-content [fullscreen]="false">
 
-  <ion-card *ngFor="let market of markets">
+  <ion-card *ngFor="let market of storeService.$stores | async ">
     <ion-card-header>
       <ion-card-title>{{ market.name }}</ion-card-title>
     </ion-card-header>
 
     <ion-card-content>
-      <p>Eschersheimer Landstraße 223, 60320 Frankfurt, Germany</p>
+      <p>{{ market.description }}</p>
     </ion-card-content>
 
     <ion-button expand="block" size="small" [routerLink]="['/market', market.id]">
