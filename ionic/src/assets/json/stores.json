@@ -1,38 +1,68 @@
 [
-  {
-      "id": 1,
-      "name": "Kleiner Laden mit langem Title",
-      "description": "Eschersheimer Landstraße 223, 60320 Frankfurt, Germany",
-      "address": {
-          "id": 2,
-          "street": "Eschersheimer Landstraße",
-          "housenumber": "223",
-          "zip_code": "60320",
-          "city": "Frankfurt",
-          "country": {
-              "id": 1,
-              "name": "Germany"
-          }
-      },
-      "lat": "50.133809",
-      "long": "8.671110"
-  },
-  {
-      "id": 2,
-      "name": "Testladen 1",
-      "description": "Neue Beschreibung",
-      "address": {
-          "id": 1,
-          "street": "Hansaallee",
-          "housenumber": "70-90",
-          "zip_code": "60323",
-          "city": "Frankfurt",
-          "country": {
-              "id": 1,
-              "name": "Germany"
-          }
-      },
-      "lat": "50.127724",
-      "long": "8.671518"
-  }
+	{
+			"id": 3,
+			"name": "Bären-Apotheke",
+			"type": {
+					"id": 2,
+					"name": "Apotheke"
+			},
+			"description": "",
+			"address": {
+					"id": 3,
+					"street": "Langestraße",
+					"housenumber": "24",
+					"zip_code": "25039",
+					"city": "Neidstein",
+					"country": {
+							"id": 1,
+							"name": "Germany"
+					}
+			},
+			"lat": "1.000000",
+			"long": "1.000000"
+	},
+	{
+			"id": 1,
+			"name": "Rewe",
+			"type": {
+					"id": 1,
+					"name": "Supermarkt"
+			},
+			"description": "Eschersheimer Landstraße 223, 60320 Frankfurt, Germany",
+			"address": {
+					"id": 2,
+					"street": "Eschersheimer Landstraße",
+					"housenumber": "223",
+					"zip_code": "60320",
+					"city": "Frankfurt",
+					"country": {
+							"id": 1,
+							"name": "Germany"
+					}
+			},
+			"lat": "50.133809",
+			"long": "8.671110"
+	},
+	{
+			"id": 2,
+			"name": "Rewe City",
+			"type": {
+					"id": 1,
+					"name": "Supermarkt"
+			},
+			"description": "",
+			"address": {
+					"id": 1,
+					"street": "Hansaallee",
+					"housenumber": "70-90",
+					"zip_code": "60323",
+					"city": "Frankfurt",
+					"country": {
+							"id": 1,
+							"name": "Germany"
+					}
+			},
+			"lat": "50.127724",
+			"long": "8.671518"
+	}
 ]
