@@ -17,14 +17,6 @@
 
 <ion-content [fullscreen]="false">
 
- 
-  <ion-list>
-    <ion-item *ngFor="let entry of supermarketTypes">
-      <ion-label>{{entry.val}}</ion-label>
-      <ion-checkbox slot="end" [(ngModel)]="entry.isChecked"></ion-checkbox>
-    </ion-item>
-  </ion-list>
-
   <ion-button expand="block" (click)="startSearch()">Suche starten</ion-button>
 
   <ion-button [routerLink]="['/scanner']">Link zu Scanner (für Security)</ion-button>
