@@ -47,6 +47,6 @@ export class StoreService {
 	}
 
 	filterStores(plz: number, type: String){
-		//this.$stores.filter(store => store.id > 1)
+		//this.$stores.pipe( map(store => store[0]), filter(store => store.id > 1))
 	}
 }
