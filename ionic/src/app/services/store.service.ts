@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { BackendService } from "../services/backend.service"
 
 interface Store {
 	id: number;
@@ -24,7 +25,9 @@ interface StoreCapacity {
 })
 export class StoreService {
 
-	constructor(private http: HttpClient) {}
+	constructor(private http: HttpClient, private backendService: BackendService) {}
 
-	
+	refresh(){
+			return this.backendService.getStores();
+	}
 }
