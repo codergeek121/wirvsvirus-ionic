@@ -9,6 +9,16 @@ interface Store {
 	long: string;
 }
 
+interface StoreCapacity {
+	id: number;
+	store: string,
+	start: string;
+	end: string;
+	total_capacity: number;
+	reserved_capacity: number;
+	available_capacity: number;
+}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -27,7 +37,12 @@ export class BackendService {
 	 * So mit dem Interface in <+> auch für die Anderen
 	 */
 	public getStores() {
-		return this.http.get<Store[]>(this.hostUrl + "/stores")
+		//return this.http.get<Store[]>(this.hostUrl + "/stores")
+		return this.http.get<Store[]>('assets/json/stores.json')
+	}
+
+	public getStoresCapacity(storeId){
+		return this.http.get<StoreCapacity[]>('assets/json/storesCapacity.json')
 	}
 	
   public searchMarkets(postalCode : String, typeOfMarket : String) {
