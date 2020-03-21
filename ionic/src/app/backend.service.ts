@@ -10,7 +10,7 @@ export class BackendService {
 
 	authurl = "https://backend.geplant-einkaufen.de/api-auth/login"
 
-	hostUrl = 'https://backend.geplant-einkaufen.de/' //add host url
+	hostUrl = 'https://backend.geplant-einkaufen.de' //add host url
 	//hostUrl = '' //add host url
 	//marketUrl = this.hostUrl +'/assets/json/markets.json'
 	marketUrl = this.hostUrl +'stores/'
