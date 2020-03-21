@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-code',
@@ -6,10 +7,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./code.page.scss'],
 })
 export class CodePage implements OnInit {
+  public code: any;
 
-  constructor() { }
-
-  ngOnInit() {
+  constructor(
+    private router: Router
+  ) { 
+    this.code = this.router.getCurrentNavigation().extras.state
   }
-
 }

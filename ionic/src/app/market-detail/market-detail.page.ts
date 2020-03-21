@@ -56,7 +56,7 @@ export class MarketDetailPage implements OnInit {
 
   public bookTimeslot() {
     console.log("Timeslot gebucht:", this.selectedTimeslot)
-    this.router.navigate(['code'])
+    this.router.navigate(['code'], { state: { booking_code: "ax4s39", market_id: 1} })
   }
 
   private timeSlotsToColumns() {
