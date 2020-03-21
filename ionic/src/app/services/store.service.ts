@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BackendService } from "../services/backend.service"
 import { Observable } from 'rxjs';
+import { filter } from 'rxjs/operators';
 
 interface Store {
 	id: number;
@@ -47,6 +48,6 @@ export class StoreService {
 	}
 
 	filterStores(plz: number, type: String){
-		//this.$stores.pipe( map(store => store[0]), filter(store => store.id > 1))
+		
 	}
 }
