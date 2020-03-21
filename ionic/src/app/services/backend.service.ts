@@ -58,7 +58,7 @@ export class BackendService {
 	}
 	
 	public bookSlot(marketId: number, slot_id : number) {
-		const url = `/assets/json/bookSlot.json`;
+		const url = `/assets/jsn/bookSlot.json`;
     //const url = this.marketUrl + `/${marketId}/slots/${slot_id}`;
     //return this.http.post(url, {id: slot_id});
     return this.http.get(url);
