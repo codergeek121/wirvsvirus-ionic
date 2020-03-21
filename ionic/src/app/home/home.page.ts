@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
-import { BackendService } from '../services/backend.service';
+import { BackendService, Store } from '../services/backend.service';
 import { Router } from '@angular/router';
 import { PopoverController } from '@ionic/angular';
 import { FilterPopoverComponent } from '../filter-popover/filter-popover.component';
 import { StoreService } from '../services/store.service';
-import { Observable, of } from 'rxjs';
-import { delay } from "rxjs/operators";
+import { Observable, of, combineLatest } from 'rxjs';
+import { delay, map, startWith } from "rxjs/operators";
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-home',
@@ -20,13 +21,17 @@ export class HomePage {
   ];
 
   plz = "";
+  $filteredStores: Observable<Store[]>;
+  searchbar: FormControl;
 
   constructor(
     private backend: BackendService,
     private router: Router,
     private popoverController: PopoverController,
     public storeService: StoreService
-    ) {}
+    ) {
+      this.searchbar = new FormControl();
+    }
 
   public startSearch() {
     console.log(this.plz)
@@ -57,7 +62,16 @@ export class HomePage {
 	}
 	
 	ngOnInit(){
+    this.$filteredStores = combineLatest(
+      this.storeService.$stores,
+      this.searchbar.valueChanges.pipe(startWith(""))
+		).pipe(
+			map(([stores, zip_code]) => {
+        console.log(stores, zip_code)
+				return stores.filter(store => store.address.zip_code.startsWith(zip_code))
+			})
+		)
+
 		console.log("on init ng!")
-		console.log(this.storeService.filterStores(1,""));
 	}
 }

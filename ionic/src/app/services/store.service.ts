@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { BackendService } from "../services/backend.service"
-import { Observable } from 'rxjs';
-import { filter, map, flatMap } from 'rxjs/operators';
+import { BackendService, Store } from "../services/backend.service"
+import { Observable, combineLatest, of, forkJoin, merge, zip } from 'rxjs';
+import { filter, map, flatMap, scan, combineAll, startWith } from 'rxjs/operators';
 
 
 @Injectable({
@@ -19,13 +19,5 @@ export class StoreService {
 	refresh(){
 			this.$stores = this.backendService.getStores();
 			return this.$stores;
-	}
-
-	filterStores(plz: number, type: string){
-		return this.$stores.pipe(
-			flatMap(stores => stores),
-			filter(store => { })
-			})
-		)
 	}
 }

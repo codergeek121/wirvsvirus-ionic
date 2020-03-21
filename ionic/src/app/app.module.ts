@@ -11,11 +11,12 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { FilterPopoverComponent } from './filter-popover/filter-popover.component';
 import { ErrorInterceptor } from './interceptors/error-interceptor';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [AppComponent, FilterPopoverComponent],
   entryComponents: [FilterPopoverComponent],
-  imports: [BrowserModule, IonicModule.forRoot({mode: 'ios'}), AppRoutingModule, HttpClientModule],
+  imports: [BrowserModule, IonicModule.forRoot({mode: 'ios'}), AppRoutingModule, HttpClientModule, ReactiveFormsModule],
   providers: [
     StatusBar,
     SplashScreen,
