@@ -54,5 +54,10 @@ export class HomePage {
     })
 
     return await filterPopover.present();
-  }
+	}
+	
+	ngOnInit(){
+		console.log("on init ng!")
+		console.log(this.storeService.filterStores(1,""));
+	}
 }
