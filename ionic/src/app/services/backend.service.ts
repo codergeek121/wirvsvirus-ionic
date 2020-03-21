@@ -45,11 +45,11 @@ export class BackendService {
 		return this.http.get<StoreCapacity[]>('assets/json/storesCapacity.json')
 	}
 	
-  public searchMarkets(postalCode : String, typeOfMarket : String) {
 
+	
+  public searchMarkets(postalCode : String, typeOfMarket : String) {
     const url = this.marketUrl + `?plz=${postalCode}&type_of_market=${typeOfMarket}`;
     return this.http.get(url);
-
 	}
 	
 	public getFreeSlots(marketId : number, dateString : String) {
