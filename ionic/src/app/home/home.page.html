@@ -6,15 +6,21 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
+<ion-content [fullscreen]="false">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
+      <ion-title size="large">Geschäft suchen</ion-title>
     </ion-toolbar>
   </ion-header>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+  <ion-searchbar [(ngModel)]="plz" inputmode="numeric" placeholder="PLZ"></ion-searchbar>
+ 
+  <ion-list>
+    <ion-item *ngFor="let entry of supermarketTypes">
+      <ion-label>{{entry.val}}</ion-label>
+      <ion-checkbox slot="end" [(ngModel)]="entry.isChecked"></ion-checkbox>
+    </ion-item>
+  </ion-list>
+
+  <ion-button expand="block" (click)="startSearch()">Suche starten</ion-button>
 </ion-content>
