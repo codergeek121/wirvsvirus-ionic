@@ -1,0 +1,7 @@
+{
+  "markets": [
+    {"id": "1", "name": "testname", "adress": "Musterweg 1 Berlin"},
+    {"id": "2", "name": "testname2", "adress": "Musterweg 2 Berlin"}
+  ]
+}
+

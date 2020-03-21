@@ -1,0 +1,6 @@
+{
+  "slots": [
+    { "id": 1, "start_time": "datestring", "end_time": "datestring", "free_slots": 2, "max_slots": 10 },
+    { "id": 2, "start_time": "datestring", "end_time": "datestring", "free_slots": 2, "max_slots": 10 }
+  ]
+}

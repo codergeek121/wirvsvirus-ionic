@@ -6,5 +6,11 @@ import { HttpClient } from '@angular/common/http';
 })
 export class BackendService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
+
+  public searchMarkets(postalCode, typeOfMarket) {
+    const url = `/assets/markets.json?plz=${postalCode}&type_of_market=${typeOfMarket}`;
+    const markets = this.http.get(url);
+    return markets;
+  }
 }
