@@ -23,5 +23,8 @@ export class HomePage {
   public startSearch() {
     console.log(this.supermarketTypes)
     console.log(this.plz)
+    this.backend.searchMarkets(this.plz, "Lebensmittel").subscribe(result => {
+      console.log(result)
+    })
   }
 }
