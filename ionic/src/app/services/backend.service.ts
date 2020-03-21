@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-interface Store {
+export interface Store {
 	id: number;
 	name: string,
 	description: string;
@@ -9,7 +9,7 @@ interface Store {
 	long: string;
 }
 
-interface StoreCapacity {
+export interface StoreCapacity {
 	id: number;
 	store: string,
 	start: string;
