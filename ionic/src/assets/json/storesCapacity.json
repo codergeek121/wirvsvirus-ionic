@@ -1,0 +1,29 @@
+[
+	{
+			"id": 1,
+			"store": "Rewe 60320",
+			"start": "2020-03-22T10:00:00Z",
+			"end": "2020-03-22T10:30:00Z",
+			"total_capacity": 15,
+			"reserved_capacity": 4,
+			"available_capacity": 7
+	},
+	{
+			"id": 2,
+			"store": "Rewe City 60323",
+			"start": "2020-03-22T10:00:00Z",
+			"end": "2020-03-22T10:30:00Z",
+			"total_capacity": 8,
+			"reserved_capacity": 3,
+			"available_capacity": 5
+	},
+	{
+			"id": 3,
+			"store": "Rewe 60320",
+			"start": "2020-03-22T10:30:00Z",
+			"end": "2020-03-22T11:00:00Z",
+			"total_capacity": 15,
+			"reserved_capacity": 3,
+			"available_capacity": 12
+	}
+]
