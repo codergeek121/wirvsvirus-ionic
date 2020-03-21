@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { BackendService } from '../backend.service';
 
 @Component({
   selector: 'app-home',
@@ -17,7 +18,7 @@ export class HomePage {
 
   plz = "";
 
-  constructor() {}
+  constructor(private backend: BackendService) {}
 
   public startSearch() {
     console.log(this.supermarketTypes)
