@@ -23,18 +23,20 @@ Response:
 ```
 
 ## freeSlots
+
+datestring format einigen wir uns noch
 ```json
 Request: 
 {
  "id": 1,
- "date": "datestring" // sag ich noch welches format wir am einfachsten schicken
+ "date": "datestring"
 }
 
 Response:
 {
   "slots": [
-    { "id": 1, start_time: "datestring", end_time: "datestring", free_slots: 2, max_slots: 10 },
-    { "id": 2, start_time: "datestring", end_time: "datestring", free_slots: 2, max_slots: 10 }
+    { "id": 1, "start_time": "datestring", "end_time": "datestring", "free_slots": 2, "max_slots": 10 },
+    { "id": 2, "start_time": "datestring", "end_time": "datestring", "free_slots": 2, "max_slots": 10 }
   ]
 }
 ```
