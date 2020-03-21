@@ -3,12 +3,15 @@ FROM node AS build-stage
 
 COPY package.json package-lock.json /app/
 WORKDIR /app
-RUN npm ci
+
+# Note "npx npm-force-resolutions" is a workaround
+# https://stackoverflow.com/a/60781705/783510
+RUN npx npm-force-resolutions && npm install
 COPY *.js *.json browserslist src /app/
 COPY src /app/src/
 RUN npm run ng build
 
-# host generated static with Nginx
+# host generated static files with Nginx
 FROM nginx
 
 RUN rm -rf /usr/share/nginx/html/*
