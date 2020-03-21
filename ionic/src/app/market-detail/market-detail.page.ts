@@ -23,7 +23,6 @@ export class MarketDetailPage implements OnInit {
   ]
 
   selectedTimeslot = {
-    id: 1,
     desc: ""
   }
 
@@ -48,7 +47,6 @@ export class MarketDetailPage implements OnInit {
         { text: 'Cancel', role: 'cancel' },
         { text: 'Confirm', handler: (value) => {
           console.log(value)
-          this.selectedTimeslot.id = value.timeslots.value
           this.selectedTimeslot.desc = value.timeslots.text
         }},
       ]
@@ -58,6 +56,7 @@ export class MarketDetailPage implements OnInit {
 
   public bookTimeslot() {
     console.log("Timeslot gebucht:", this.selectedTimeslot)
+    this.router.navigate(['code'])
   }
 
   private timeSlotsToColumns() {
