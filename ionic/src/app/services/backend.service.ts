@@ -44,7 +44,8 @@ export class BackendService {
 	hostUrl = 'https://backend.geplant-einkaufen.de' //add host url
 	//hostUrl = '' //add host url
 	//marketUrl = this.hostUrl +'/assets/json/markets.json'
-	marketUrl = this.hostUrl +'stores/'
+	storesUrl = this.hostUrl +'/stores/'
+	capacitiesUrl = this.hostUrl +'/storecapacities/'
 	
 	constructor(private http: HttpClient) {}
 
@@ -52,17 +53,19 @@ export class BackendService {
 	 * So mit dem Interface in <+> auch für die Anderen
 	 */
 	public getStores() {
-		return this.http.get<Store[]>('assets/json/stores.json')
+		//return this.http.get<Store[]>('assets/json/stores.json')
+		return this.http.get<Store[]>(this.storesUrl)
 	}
 
-	public getStoresCapacity(storeId){
-		return this.http.get<StoreCapacity[]>('assets/json/storesCapacity.json')
+	public getStoresCapacity(storeId: number){
+		//return this.http.get<StoreCapacity[]>('assets/json/storesCapacity.json')
+		return this.http.get<StoreCapacity[]>(this.capacitiesUrl + `?storeid=${storeId}`)
 	}
 	
 
 	
   public searchMarkets(postalCode : String, typeOfMarket : String) {
-    const url = this.marketUrl + `?plz=${postalCode}&type_of_market=${typeOfMarket}`;
+    const url = this.storesUrl + `?plz=${postalCode}&type_of_market=${typeOfMarket}`;
     return this.http.get(url);
 	}
 	
