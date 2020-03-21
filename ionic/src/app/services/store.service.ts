@@ -2,33 +2,9 @@ import { Injectable } from '@angular/core';
 import { BackendService } from "../services/backend.service"
 import { Observable } from 'rxjs';
 import { filter } from 'rxjs/operators';
+import {Store} from '../services/backend.service';
+import {Address} from '../services/backend.service';
 
-interface Store {
-	id: number;
-	name: string,
-	description: string;
-	//address: Address[];
-	lat: string;
-	long: string;
-}
-
-interface Address {
-	id: number;
-	street: number;
-	housenumber: number;
-	zip_code: number;
-	city: number;
-}
-
-interface StoreCapacity {
-	id: number;
-	store: string,
-	start: string;
-	end: string;
-	total_capacity: number;
-	reserved_capacity: number;
-	available_capacity: number;
-}
 
 @Injectable({
   providedIn: 'root'
@@ -47,7 +23,7 @@ export class StoreService {
 			return this.$stores;
 	}
 
-	filterStores(plz: number, type: String){
+	filterStores(plz: number, type: string){
 		
 	}
 }

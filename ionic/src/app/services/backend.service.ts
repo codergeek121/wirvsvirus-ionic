@@ -4,6 +4,8 @@ import { HttpClient } from '@angular/common/http';
 export interface Store {
 	id: number;
 	name: string,
+	address: Address;
+	type: Type;
 	description: string;
 	lat: string;
 	long: string;
@@ -17,6 +19,19 @@ export interface StoreCapacity {
 	total_capacity: number;
 	reserved_capacity: number;
 	available_capacity: number;
+}
+
+export interface Address {
+	id: number;
+	street: string;
+	housenumber: string;
+	zip_code: string;
+	city: string;
+}
+
+export interface Type {
+	id: number;
+	street: string;
 }
 
 @Injectable({
