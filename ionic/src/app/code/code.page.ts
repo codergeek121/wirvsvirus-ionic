@@ -14,4 +14,8 @@ export class CodePage implements OnInit {
   ) { 
     this.code = this.router.getCurrentNavigation().extras.state
   }
+
+  ngOnInit() {
+  }
+
 }
