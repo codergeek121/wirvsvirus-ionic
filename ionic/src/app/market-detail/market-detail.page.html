@@ -1,9 +1,23 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>market-detail</ion-title>
+    <ion-title>Einkaufsslot reservieren</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>  
-  <h1>Hello World</h1>
+  <h1>{{ market.name }}</h1>
+  <p>{{ market.street }}</p>
+  <p>{{ market.plz }}</p>
+  <p>{{ market.city }}</p>
+
+
+  <h2>Ihr gewähltes Zeitfenster:</h2>
+  <ul>
+    <li>{{ this.selectedTimeslot.desc }}</li>
+    <li>{{ this.selectedTimeslot.id }}</li>
+  </ul>
+
+  <ion-button expand="block" (click)="openPicker()">Zeitslot auswählen</ion-button>
+
+  <ion-button expand="block" (click)="bookTimeslot()">Zeitfenster buchen</ion-button>
 </ion-content>
