@@ -7,15 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FilterPopoverComponent implements OnInit {
   supermarketTypes = [
-    {val: "Lebensmittel", isChecked: true },
-    {val: "Drogerie", isChecked: false },
-    {val: "Apotheke", isChecked: false },
-    {val: "Garten", isChecked: false },
-    {val: "Baumarkt", isChecked: false },
-    {val: "Tierbedarf", isChecked: false },
+    {val: "Supermarkt", id: 1, isChecked: true },
+    {val: "Apotheke", id: 2, isChecked: false },
   ];
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit() {}
 

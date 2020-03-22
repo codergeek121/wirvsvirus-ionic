@@ -5,8 +5,8 @@ import { PopoverController } from '@ionic/angular';
 import { FilterPopoverComponent } from '../filter-popover/filter-popover.component';
 import { StoreService } from '../services/store.service';
 import { Observable, of, combineLatest } from 'rxjs';
-import { delay, map, startWith } from "rxjs/operators";
-import { FormControl } from '@angular/forms';
+import { delay, map, startWith, debounce, debounceTime, distinctUntilChanged, tap } from "rxjs/operators";
+import { FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-home',
@@ -14,13 +14,6 @@ import { FormControl } from '@angular/forms';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
-
-  public markets = [
-    { id: 1, name: "Laden 1", address: "Musterweg 1" },
-    { id: 2, name: "Laden 2", address: "Musterweg 2" },
-  ];
-
-  plz = "";
   $filteredStores: Observable<Store[]>;
   searchbar: FormControl;
 
@@ -30,11 +23,12 @@ export class HomePage {
     private popoverController: PopoverController,
     public storeService: StoreService
     ) {
-      this.searchbar = new FormControl();
+      this.searchbar = new FormControl('', [
+        Validators.maxLength(5)
+      ]);
     }
 
   public startSearch() {
-    console.log(this.plz)
     this.backend.getStores().subscribe(result => {
 			console.log(result)
     })
@@ -64,10 +58,14 @@ export class HomePage {
 	ngOnInit(){
     this.$filteredStores = combineLatest(
       this.storeService.$stores,
-      this.searchbar.valueChanges.pipe(startWith(""))
+      this.searchbar.valueChanges.pipe(
+        startWith(""),
+        distinctUntilChanged(),
+        debounceTime(250)
+      )
 		).pipe(
 			map(([stores, zip_code]) => {
-        console.log(stores, zip_code)
+        console.log(zip_code)
 				return stores.filter(store => store.address.zip_code.startsWith(zip_code))
 			})
 		)

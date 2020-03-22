@@ -1,6 +1,6 @@
 <ion-list>
   <ion-item *ngFor="let entry of supermarketTypes">
     <ion-label>{{entry.val}}</ion-label>
-    <ion-checkbox slot="end"></ion-checkbox>
+    <ion-radio slot="start" [value]="entry.id"></ion-radio>
   </ion-item>
 </ion-list>
