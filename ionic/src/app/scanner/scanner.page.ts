@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { BackendService } from '../services/backend.service';
 
 @Component({
   selector: 'app-scanner',
@@ -17,12 +18,21 @@ export class ScannerPage implements OnInit {
     }
   }
 
-  constructor() { }
+  constructor(private backendService: BackendService) { }
 
   ngOnInit() {
   }
 
   checkBookingCode() {
-    this.codeStatus.valid = !this.codeStatus.valid
-  }
+    //this.codeStatus.valid = !this.codeStatus.valid
+		const response = this.backendService.validateBookingCode(this.bookingCode)
+		response.subscribe(resp => {
+			if(resp.valid === "True"){
+				this.codeStatus.valid = true
+				this.codeStatus.reservation.starts_at = resp.start
+				this.codeStatus.reservation.ends_at = resp.end
+			}
+		})
+		
+	}
 }
