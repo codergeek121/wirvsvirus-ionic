@@ -7,7 +7,27 @@
 <ion-content>
   <div class="code">{{ booking_code }}</div>
 
-  <div>{{ store_capacity | json }}</div>
+	<!-- <div>{{ store_capacity | json }}</div> -->
+
+	<ion-card *ngIf="true" class="result-status">
+		<ion-card-header>
+			<img src="assets/correct.svg">
+			<ion-card-title>Vielen Dank!<br>Ihre Buchung war erfolgreich!</ion-card-title>
+		</ion-card-header>
+	</ion-card>
+
+	<ion-card *ngIf="true">
+		<ion-card-header>
+			<ion-card-title>Dein Zeitslot:</ion-card-title>
+		</ion-card-header>
+		<ion-card-content>
+			<p>Datum <b>26. März 2020</b></p>
+			<p>von <b>{{ store_capacity.start }}</b></p>
+			<p>bis <b>{{ store_capacity.end }}</b></p>
+			<label> Viel Erfolg beim Einkauf!</label>
+		</ion-card-content>
+	</ion-card>
 
   <app-store [store]="store"></app-store>
+
 </ion-content>

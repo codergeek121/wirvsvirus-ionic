@@ -10,3 +10,13 @@ ion-content {
   padding-top: 8px;
   padding-bottom: 8px;
 }
+
+.result-status{
+	ion-card-header {
+		display: flex !important;
+	}
+	ion-card-title {
+		margin-left: 20px !important ;
+		font-size: 20px !important;
+	}
+}
