@@ -46,6 +46,7 @@ export class BackendService {
 	//marketUrl = this.hostUrl +'/assets/json/markets.json'
 	storesUrl = this.hostUrl +'/stores/'
 	capacitiesUrl = this.hostUrl +'/storecapacities/'
+	bookSlotUrl = this.hostUrl +'/placebooking/'
 	
 	constructor(private http: HttpClient) {}
 
@@ -76,10 +77,8 @@ export class BackendService {
 	}
 	
 	public bookSlot(marketId: number, slot_id : number) {
-		const url = `/assets/json/bookSlot.json`;
-    //const url = this.marketUrl + `/${marketId}/slots/${slot_id}`;
-    //return this.http.post(url, {id: slot_id});
-    return this.http.get(url);
+			return this.http.post(this.bookSlotUrl + `${slot_id}/`, {})
+
 	}
 	
   public validateBookingCode(marketId: number, slotId: number, bookingCode : String) {
