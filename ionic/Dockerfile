@@ -9,7 +9,7 @@ WORKDIR /app
 RUN npx npm-force-resolutions && npm install
 COPY *.js *.json browserslist src /app/
 COPY src /app/src/
-RUN npm run ng build --prod
+RUN npm run ng build --aot --prod
 
 # host generated static files with Nginx
 FROM nginx
