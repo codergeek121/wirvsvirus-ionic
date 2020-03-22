@@ -15,6 +15,7 @@ export class CodePage implements OnInit {
     private router: Router
   ) { 
     const params = <any>this.router.getCurrentNavigation().extras.state
+    console.log(params)
     this.booking_code = params.identifier
     this.store_capacity = <StoreCapacity>params.store_capacity
   }

@@ -1,21 +1,16 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { ScannerPage } from './scanner/scanner.page';
+import { CodePage } from './code/code.page';
+import { MarketDetailPage } from './market-detail/market-detail.page';
+import { HomePage } from './home/home.page';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
-  { path: 'home', loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)},
-  {
-    path: 'market/:id',
-    loadChildren: () => import('./market-detail/market-detail.module').then( m => m.MarketDetailPageModule)
-  },
-  {
-    path: 'code',
-    loadChildren: () => import('./code/code.module').then( m => m.CodePageModule)
-  },
-  {
-    path: 'scanner',
-    loadChildren: () => import('./scanner/scanner.module').then( m => m.ScannerPageModule)
-  },
+  { path: 'home', component: HomePage },
+  { path: 'market/:id', component: MarketDetailPage },
+  { path: 'code', component: CodePage },
+  { path: 'scanner', component: ScannerPage },
 ];
 
 @NgModule({
