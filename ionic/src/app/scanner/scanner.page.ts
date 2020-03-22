@@ -14,9 +14,9 @@ export class ScannerPage implements OnInit {
     name: "Ungültig",
     valid: false,
     reservation: {
-      date: "01.01.2020",
-      starts_at: "13:45",
-      ends_at: "14:00"
+      date: "2020-03-26T06:00:00Z",
+      starts_at: "2020-03-26T06:00:00Z",
+      ends_at: "2020-03-26T06:00:00Z"
     }
   }
 
