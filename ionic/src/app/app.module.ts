@@ -17,6 +17,8 @@ import { ScannerPage } from './scanner/scanner.page';
 import { HomePage } from './home/home.page';
 import { MarketDetailPage } from './market-detail/market-detail.page';
 import { CodePage } from './code/code.page';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,7 @@ import { CodePage } from './code/code.page';
     CodePage,
     ScannerPage],
   entryComponents: [FilterPopoverComponent],
-  imports: [BrowserModule, IonicModule.forRoot({mode: 'ios', backButtonText: 'Zurück'}), AppRoutingModule, HttpClientModule, ReactiveFormsModule, FormsModule],
+  imports: [BrowserModule, IonicModule.forRoot({mode: 'ios', backButtonText: 'Zurück'}), AppRoutingModule, HttpClientModule, ReactiveFormsModule, FormsModule, ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })],
   providers: [
     StatusBar,
     SplashScreen,

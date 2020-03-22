@@ -22,8 +22,8 @@
 		</ion-card-header>
 		<ion-card-content>
 			<p>Datum <b>26. März 2020</b></p>
-			<p>von <b>{{ store_capacity.start }}</b></p>
-			<p>bis <b>{{ store_capacity.end }}</b></p>
+			<p>von <b>{{ store_capacity.start | date: "hh:mm" }}</b></p>
+			<p>bis <b>{{ store_capacity.end | date: "hh:mm" }}</b></p>
 			<label> Viel Erfolg beim Einkauf!</label>
 		</ion-card-content>
 	</ion-card>
