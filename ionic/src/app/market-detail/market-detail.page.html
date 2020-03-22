@@ -22,7 +22,7 @@
       <ion-item *ngFor="let capacity of $capacities | async">
         <ion-label>{{ capacity.start | date: 'hh:mm' }} - {{ capacity.end | date: 'hh:mm' }}</ion-label>
         <ion-radio slot="start" [value]="capacity.id" [disabled]="capacity.available_capacity == 0"></ion-radio>
-        <ion-text slot="end">{{ capacity.total_capacity - capacity.available_capacity }}/{{ capacity.total_capacity }}</ion-text>
+        <ion-text slot="end">{{ capacity.total_capacity -capacity.reserved_capacity - capacity.available_capacity }}/{{ capacity.total_capacity - capacity.reserved_capacity }}</ion-text>
       </ion-item>
   
     </ion-radio-group>
