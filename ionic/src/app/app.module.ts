@@ -20,6 +20,7 @@ import { CodePage } from './code/code.page';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { IonicStorageModule } from '@ionic/storage';
+import { BarcodeModalPage } from './barcode-modal/barcode-modal.page';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { IonicStorageModule } from '@ionic/storage';
     HomePage,
     MarketDetailPage,
     CodePage,
+    BarcodeModalPage,
     ScannerPage],
   entryComponents: [FilterPopoverComponent],
   imports: [BrowserModule, IonicModule.forRoot({mode: 'ios', backButtonText: 'Zurück'}), AppRoutingModule, HttpClientModule, ReactiveFormsModule, FormsModule, ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }), IonicStorageModule.forRoot({name: "data", driverOrder: ['localstorage']})],

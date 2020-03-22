@@ -4,6 +4,7 @@ import { ScannerPage } from './scanner/scanner.page';
 import { CodePage } from './code/code.page';
 import { MarketDetailPage } from './market-detail/market-detail.page';
 import { HomePage } from './home/home.page';
+import { BarcodeModalPage } from './barcode-modal/barcode-modal.page';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -11,6 +12,7 @@ const routes: Routes = [
   { path: 'market/:id', component: MarketDetailPage },
   { path: 'code', component: CodePage },
   { path: 'scanner', component: ScannerPage },
+  { path: 'barcode-modal', component: BarcodeModalPage },
 ];
 
 @NgModule({

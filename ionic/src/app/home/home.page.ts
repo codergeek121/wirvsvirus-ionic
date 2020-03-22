@@ -1,13 +1,14 @@
 import { Component } from '@angular/core';
 import { BackendService, Store } from '../services/backend.service';
 import { Router } from '@angular/router';
-import { PopoverController } from '@ionic/angular';
+import { PopoverController, ModalController } from '@ionic/angular';
 import { FilterPopoverComponent } from '../filter-popover/filter-popover.component';
 import { StoreService } from '../services/store.service';
 import { Observable, of, combineLatest } from 'rxjs';
 import { delay, map, startWith, debounceTime, distinctUntilChanged } from "rxjs/operators";
 import { FormControl, Validators } from '@angular/forms';
 import { Storage } from "@ionic/storage";
+import { BarcodeModalPage } from '../barcode-modal/barcode-modal.page';
 
 @Component({
   selector: 'app-home',
@@ -23,7 +24,8 @@ export class HomePage {
     private router: Router,
     private popoverController: PopoverController,
     private storage: Storage,
-    public storeService: StoreService
+    public storeService: StoreService,
+    public modalController: ModalController
     ) {
       this.searchbar = new FormControl('', [
         Validators.maxLength(5)
@@ -75,5 +77,12 @@ export class HomePage {
     this.storage.get("code").then(result => {
       console.log(result);
     })
-	}
+  }
+  
+  public async showCodesModal() {
+    const modal = await this.modalController.create({
+      component: BarcodeModalPage
+    })
+    return await modal.present();
+  }
 }
