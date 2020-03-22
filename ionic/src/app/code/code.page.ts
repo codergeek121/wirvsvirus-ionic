@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { StoreCapacity } from '../services/backend.service';
+import { StoreCapacity, Store } from '../services/backend.service';
 
 @Component({
   selector: 'app-code',
@@ -10,6 +10,7 @@ import { StoreCapacity } from '../services/backend.service';
 export class CodePage implements OnInit {
   public booking_code: number;
   public store_capacity: StoreCapacity;
+  public store: Store;
 
   constructor(
     private router: Router
@@ -17,6 +18,7 @@ export class CodePage implements OnInit {
     const params = <any>this.router.getCurrentNavigation().extras.state
     console.log(params)
     this.booking_code = params.identifier
+    this.store = <Store>params.store_capacity.store
     this.store_capacity = <StoreCapacity>params.store_capacity
   }
 
