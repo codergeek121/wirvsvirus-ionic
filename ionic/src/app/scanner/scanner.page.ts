@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { BackendService } from '../services/backend.service';
+import { BackendService, Store } from '../services/backend.service';
 
 @Component({
   selector: 'app-scanner',
@@ -7,10 +7,12 @@ import { BackendService } from '../services/backend.service';
   styleUrls: ['./scanner.page.scss'],
 })
 export class ScannerPage implements OnInit {
-  bookingCode = "";
+	bookingCode = "";
+	public store: Store;
 
   codeStatus = {
-    hasBeenValidated: false,
+		hasBeenValidated: false,
+		store: "",
     name: "Ungültig",
     valid: false,
     reservation: {
@@ -31,11 +33,13 @@ export class ScannerPage implements OnInit {
 		response.subscribe(resp => {
 			if(resp['valid'] === "True"){
 				this.codeStatus.valid = true
+				this.codeStatus.store = resp['store']
 				this.codeStatus.name = "Gültig",
 				this.codeStatus.reservation.starts_at = resp['start']
 				this.codeStatus.reservation.ends_at = resp['end']
 			} else{
 				this.codeStatus.valid = false
+				this.codeStatus.store = ""
 				this.codeStatus.name = "Ungültig",
 				this.codeStatus.reservation.starts_at = ""
 				this.codeStatus.reservation.ends_at = ""

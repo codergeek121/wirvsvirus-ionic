@@ -19,5 +19,7 @@
       <p>Reservierung: <b>{{ codeStatus.reservation.date | date: "dd.MM.yyyy" }}</b></p>
       <p>{{ codeStatus.reservation.starts_at | date: "hh:mm" }} bis {{ codeStatus.reservation.ends_at  | date: "hh:mm" }}</p>
     </ion-card-content>
-  </ion-card>
+	</ion-card>
+	
+	<app-store [store]="codeStatus.store"></app-store>
 </ion-content>
