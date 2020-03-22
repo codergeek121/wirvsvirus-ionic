@@ -143,3 +143,57 @@ Reponse:
     },
 ]
 ```
+
+### Request Reservation
+
+```json
+Request:
+POST /placebooking/<storecapacityid>/
+
+Reponse:
+{
+  "id": 6,
+  "identifier": "749478",
+  "store_capacity": {
+    "id": 1,
+    "start": "2020-03-21T10:00:00Z",
+    "end": "2020-03-21T11:00:00Z",
+    "total_capacity": 9,
+    "reserved_capacity": 3,
+    "available_capacity": 0,
+    "store": {
+      "id": 1,
+      "name": "Rewe",
+      "type": null,
+      "description": "",
+      "address": {
+        "id": 1,
+        "street": "Eschersheimer Landstra\\u00dfe",
+        "housenumber": "2345",
+        "zip_code": "60320",
+        "city": "Frankfurt",
+        "country": {
+          "id": 1,
+          "name": "Germany"
+        }
+      },
+      "lat": null,
+      "long": null
+    }
+  }
+}
+or
+{"Success": "False", "Error": "Storecapacity is not sufficient."}
+```
+
+
+### Check Reservation
+```json
+Request:
+POST validatebooking/<identifier>/
+
+Reponse:
+{"valid": "True", "start": "2020-03-21T10:00:00Z", "end": "2020-03-21T11:00:00Z"}
+or
+{"valid": "False"}
+```
