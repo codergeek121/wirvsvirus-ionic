@@ -7,6 +7,7 @@ import { ModalController } from '@ionic/angular';
   styleUrls: ['./barcode-modal.page.scss'],
 })
 export class BarcodeModalPage implements OnInit {
+  codes = ["abcd", "efghi"]
 
   constructor(
     private modalController: ModalController
