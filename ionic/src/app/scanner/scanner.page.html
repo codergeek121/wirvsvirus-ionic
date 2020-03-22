@@ -8,7 +8,7 @@
   <input class="code-input" type="text" [(ngModel)]="bookingCode" />
   <ion-button expand="block" (click)="checkBookingCode()">Reservierung prüfen</ion-button>
 
-  <ion-card *ngIf="codeStatus.valid">
+  <ion-card *ngIf="codeStatus.hasBeenValidated">
     <ion-card-title>{{ codeStatus.valid ? "Gültig" : "Ungültig" }}</ion-card-title>
     <ion-card-content>
       <p>Aktuelle Uhrzeit:</p>
