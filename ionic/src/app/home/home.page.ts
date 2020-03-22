@@ -5,8 +5,9 @@ import { PopoverController } from '@ionic/angular';
 import { FilterPopoverComponent } from '../filter-popover/filter-popover.component';
 import { StoreService } from '../services/store.service';
 import { Observable, of, combineLatest } from 'rxjs';
-import { delay, map, startWith, debounce, debounceTime, distinctUntilChanged, tap } from "rxjs/operators";
+import { delay, map, startWith, debounceTime, distinctUntilChanged } from "rxjs/operators";
 import { FormControl, Validators } from '@angular/forms';
+import { Storage } from "@ionic/storage";
 
 @Component({
   selector: 'app-home',
@@ -21,6 +22,7 @@ export class HomePage {
     private backend: BackendService,
     private router: Router,
     private popoverController: PopoverController,
+    private storage: Storage,
     public storeService: StoreService
     ) {
       this.searchbar = new FormControl('', [
@@ -70,6 +72,8 @@ export class HomePage {
 			})
 		)
 
-		console.log("on init ng!")
+    this.storage.get("code").then(result => {
+      console.log(result);
+    })
 	}
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Storage } from "@ionic/storage";
 import { StoreCapacity, Store } from '../services/backend.service';
 
 @Component({
@@ -13,13 +14,14 @@ export class CodePage implements OnInit {
   public store: Store;
 
   constructor(
-    private router: Router
+    private router: Router,
+    private storage: Storage
   ) { 
     const params = <any>this.router.getCurrentNavigation().extras.state
-    console.log(params)
-    this.booking_code = params.identifier
-    this.store = <Store>params.store_capacity.store
-    this.store_capacity = <StoreCapacity>params.store_capacity
+    this.storage.set("code", params.identifier);
+    this.booking_code = params.identifier;
+    this.store = <Store>params.store_capacity.store;
+    this.store_capacity = <StoreCapacity>params.store_capacity;
   }
 
   ngOnInit() {

@@ -19,6 +19,7 @@ import { MarketDetailPage } from './market-detail/market-detail.page';
 import { CodePage } from './code/code.page';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { IonicStorageModule } from '@ionic/storage';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,7 @@ import { environment } from '../environments/environment';
     CodePage,
     ScannerPage],
   entryComponents: [FilterPopoverComponent],
-  imports: [BrowserModule, IonicModule.forRoot({mode: 'ios', backButtonText: 'Zurück'}), AppRoutingModule, HttpClientModule, ReactiveFormsModule, FormsModule, ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })],
+  imports: [BrowserModule, IonicModule.forRoot({mode: 'ios', backButtonText: 'Zurück'}), AppRoutingModule, HttpClientModule, ReactiveFormsModule, FormsModule, ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }), IonicStorageModule.forRoot({name: "data", driverOrder: ['localstorage']})],
   providers: [
     StatusBar,
     SplashScreen,
