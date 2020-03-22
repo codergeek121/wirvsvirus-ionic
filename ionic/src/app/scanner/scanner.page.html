@@ -5,12 +5,16 @@
 </ion-header>
 
 <ion-content>
-  <input class="code-input" type="text" [(ngModel)]="bookingCode" style="margin-bottom: 20px; background: rgba(var(--ion-text-color-rgb,0,0,0),0.07)" />
+	<input class="code-input" type="text" [(ngModel)]="bookingCode" style="margin-bottom: 20px; background: rgba(var(--ion-text-color-rgb,0,0,0),0.07)
+	" placeholder="Code eingeben" />
   <ion-button expand="block" (click)="checkBookingCode()">Reservierung prüfen</ion-button>
 
   <ion-card *ngIf="codeStatus.hasBeenValidated">
-    <ion-card-title>{{ codeStatus.name}}</ion-card-title>
-    <ion-card-content>
+		<ion-card-title style="display: flex">
+			<img *ngIf="codeStatus.valid" src="assets/correct.svg" style="height: 30px;margin-left: 20px; margin-right: 20px;margin-top: 5px">
+			<img *ngIf="!codeStatus.valid" src="assets/remove.svg" style="height: 30px;margin-left: 20px; margin-right: 20px;margin-top: 5px">
+			<label>{{ codeStatus.name}}</label></ion-card-title>
+    <ion-card-content *ngIf="codeStatus.valid">
       <p>Aktuelle Uhrzeit:</p>
       <p>Reservierung: {{ codeStatus.reservation.date }}</p>
       <p>{{ codeStatus.reservation.starts_at }} bis {{ codeStatus.reservation.ends_at }}</p>
