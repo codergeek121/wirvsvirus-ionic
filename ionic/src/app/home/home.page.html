@@ -20,7 +20,11 @@
   <ion-refresher slot="fixed" (ionRefresh)="refreshStores($event)">
     <ion-refresher-content></ion-refresher-content>
   </ion-refresher>
-
+  <ion-card *ngIf="!(this.$filteredStores | async)?.length">
+    <ion-card-header>
+      Keine Ergebnisse gefunden.
+    </ion-card-header>
+  </ion-card>
   <ion-card *ngFor="let market of this.$filteredStores | async">
     <ion-card-header>
       <ion-card-title>{{ market.name }}</ion-card-title>
