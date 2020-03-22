@@ -10,7 +10,7 @@
 
 <ion-content>
   <ion-list>
-    <ion-item *ngFor="let code of codes">
+    <ion-item *ngFor="let code of codeService.getAllCodes()">
       <ion-label>{{ code }}</ion-label>
     </ion-item>
   </ion-list>
