@@ -73,7 +73,6 @@ export class HomePage {
 		)
 
     this.storage.get("code").then(result => {
-      console.log("mycode:");
       console.log(result);
     })
 	}
