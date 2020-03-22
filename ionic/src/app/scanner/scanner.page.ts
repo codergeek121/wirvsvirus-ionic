@@ -29,11 +29,11 @@ export class ScannerPage implements OnInit {
     //this.codeStatus.valid = !this.codeStatus.valid
 		const response = this.backendService.validateBookingCode(this.bookingCode)
 		response.subscribe(resp => {
-			if(resp.valid === "True"){
+			if(resp['valid'] === "True"){
 				this.codeStatus.valid = true
 				this.codeStatus.name = "Gültig",
-				this.codeStatus.reservation.starts_at = resp.start
-				this.codeStatus.reservation.ends_at = resp.end
+				this.codeStatus.reservation.starts_at = resp['start']
+				this.codeStatus.reservation.ends_at = resp['end']
 			} else{
 				this.codeStatus.valid = false
 				this.codeStatus.name = "Ungültig",
