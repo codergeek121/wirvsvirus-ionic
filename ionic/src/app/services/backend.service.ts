@@ -46,6 +46,8 @@ export class BackendService {
 	//marketUrl = this.hostUrl +'/assets/json/markets.json'
 	storesUrl = this.hostUrl +'/stores/'
 	capacitiesUrl = this.hostUrl +'/storecapacities/'
+	bookSlotUrl = this.hostUrl +'/placebooking/'
+	validateIdentifierUrl = this.hostUrl +'/validatebooking/'
 	
 	constructor(private http: HttpClient) {}
 
@@ -61,31 +63,12 @@ export class BackendService {
 		return this.http.get<StoreCapacity[]>(this.capacitiesUrl + `?storeid=${storeId}`)
 	}
 	
-
-	
-  public searchMarkets(postalCode : String, typeOfMarket : String) {
-    const url = this.storesUrl + `?plz=${postalCode}&type_of_market=${typeOfMarket}`;
-    return this.http.get(url);
-	}
-	
-	public getFreeSlots(marketId : number, dateString : String) {
-		const url = `/assets/json/freeSlots.json?id=${marketId}&date=${dateString}`;
-    //const url = this.marketUrl + `/${marketId}/freeSlots&date=${dateString}`;
-    return this.http.get(url);
-	}
-	
 	public bookSlot(marketId: number, slot_id : number) {
-		const url = `/assets/json/bookSlot.json`;
-    //const url = this.marketUrl + `/${marketId}/slots/${slot_id}`;
-    //return this.http.post(url, {id: slot_id});
-    return this.http.get(url);
+			return this.http.post(this.bookSlotUrl + `${slot_id}/`, {})
 	}
 	
-  public validateBookingCode(marketId: number, slotId: number, bookingCode : String) {
-	  const url = `/assets/json/validateBookingCode.json`;
-    //const url = this.marketUrl + `/${marketId}/slots/${slotId}/code`;
-    //return this.http.post(url, {booking_code: bookingCode});
-    return this.http.get(url);
+  public validateBookingCode(bookingCode : String) {
+		return this.http.post(this.validateIdentifierUrl + `${bookingCode}/`, {})
 	}
 	
 }
