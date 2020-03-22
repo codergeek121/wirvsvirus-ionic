@@ -16,7 +16,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [AppComponent, FilterPopoverComponent],
   entryComponents: [FilterPopoverComponent],
-  imports: [BrowserModule, IonicModule.forRoot({mode: 'ios'}), AppRoutingModule, HttpClientModule, ReactiveFormsModule],
+  imports: [BrowserModule, IonicModule.forRoot({mode: 'ios', backButtonText: 'Zurück'}), AppRoutingModule, HttpClientModule, ReactiveFormsModule],
   providers: [
     StatusBar,
     SplashScreen,
