@@ -9,7 +9,7 @@
 
 <ion-content>  
 
-  <app-store [store]="$store"></app-store>
+  <app-store [store]="$store | async"></app-store>
 
   <ion-list>
     <ion-radio-group value="biff" [(ngModel)]="capacityId">

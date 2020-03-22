@@ -1,1 +1,10 @@
-<div>{{ store | async | json }}</div>
+<ion-card *ngIf="store">
+  <ion-card-header>
+    <ion-card-title>{{ store.name }}</ion-card-title>
+  </ion-card-header>
+  <ion-card-content>
+    <p>{{ store.description }}</p>
+    <p>{{ store.address.street }}</p>
+    <p>{{ store.address.zip_code }}</p>
+  </ion-card-content>
+</ion-card>
