@@ -39,8 +39,7 @@ export class MarketDetailPage implements OnInit {
     this.backend
       .bookSlot(null, this.capacityId)
       .subscribe(success => {
-        const booking_code = success["booking_code"]
-        this.router.navigate(['code'], { state: { booking_code: booking_code, market_id: 1} })
+        this.router.navigate(['code'], { state: success })
       })
   }
 }
