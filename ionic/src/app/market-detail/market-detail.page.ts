@@ -29,6 +29,10 @@ export class MarketDetailPage implements OnInit {
     this.$store = $store_id.pipe(
       flatMap(id => this.storeService.findById(id))
     )
+
+    this.$capacities = $store_id.pipe(
+      flatMap(id => this.backend.getStoresCapacity(id))
+    )
   }
 
   public bookTimeslot() {
