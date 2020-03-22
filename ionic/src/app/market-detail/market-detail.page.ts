@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { BackendService, StoreCapacity } from '../services/backend.service';
-import { flatMap } from 'rxjs/operators';
-import { Observable } from 'rxjs';
+import { BackendService, StoreCapacity, Store } from '../services/backend.service';
+import { flatMap, map } from 'rxjs/operators';
+import { Observable, forkJoin } from 'rxjs';
+import { StoreService } from '../services/store.service';
 
 @Component({
   selector: 'app-market-detail',
@@ -11,24 +12,22 @@ import { Observable } from 'rxjs';
 })
 export class MarketDetailPage implements OnInit {
   public $capacities: Observable<StoreCapacity[]>;
+  public $store: Observable<Store>;
   public capacityId: number;
 
-  market = {
-    name: "Testmarkt abc",
-    street: "Musterweg 13",
-    plz: "80801",
-    city: "München"
-  }
+  public currentStore: Store;
 
   constructor(
     private router: Router,
     private activeRoute: ActivatedRoute,
-    private backend: BackendService
+    private backend: BackendService,
+    private storeService: StoreService
   ) { }
 
   ngOnInit() {
-    this.$capacities = this.activeRoute.params.pipe(
-      flatMap(params => this.backend.getStoresCapacity(params["id"]))
+    const $store_id = this.activeRoute.params.pipe(map(p => p.id))
+    this.$store = $store_id.pipe(
+      flatMap(id => this.storeService.findById(id))
     )
   }
 

@@ -53,7 +53,6 @@ export class BackendService {
 	 * So mit dem Interface in <+> auch für die Anderen
 	 */
 	public getStores() {
-		//return this.http.get<Store[]>('assets/json/stores.json')
 		return this.http.get<Store[]>(this.storesUrl)
 	}
 

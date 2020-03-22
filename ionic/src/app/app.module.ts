@@ -12,6 +12,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { FilterPopoverComponent } from './filter-popover/filter-popover.component';
 import { ErrorInterceptor } from './interceptors/error-interceptor';
 import { ReactiveFormsModule } from '@angular/forms';
+import { StoreComponent } from './components/store/store.component';
 
 @NgModule({
   declarations: [AppComponent, FilterPopoverComponent],
